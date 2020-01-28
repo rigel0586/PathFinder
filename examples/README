@@ -1,0 +1,105 @@
+Here are some examples to show how pathfinder is used.
+See also: http://www-flc.desy.de/flc/flcwiki/PATHFINDER
+
+
+1.) BasicHitExample:
+
+    Shows how a basicHit is created.
+
+
+
+2.) FinderParameterExample:
+
+   Shows how FinderParameter is created.
+
+   Usage:
+   FinderParameterExample [track_type]
+   track_type = 0: Straight Line
+   track_type = 1: Helixsegment
+   track_type = 2: Curler
+
+
+
+3.) TrackGenerationExample:
+   
+    Shows how the track generation part works.
+
+    Usage:
+    A steering file is needed. There is one in this directory which is called Steering_TrackGenerationExample.txt.
+    To get an example steering file, you can also call TrackGenerationExample without arguments and an example steering file will be printed to the screen.
+    If there is a steering file available use TrackGenerationExample SteeringFile.txt
+    Feel free to change the default steering file and play with it :-).
+
+    Steering file:
+    Here are some explanations what the variables in the steering file mean.
+
+      tracktype:	 track type; 0 = straight line; 1 = helix segment; 2 = curler
+      nevents:		 number of events that should be generated
+      ntracks:		 number of tracks per event
+      nhits:		 number of hits per half track (half of the number of pad rows, coordinate system in the center of the pad plane)
+      nnoise: 		 number of noise hits oer event
+      smearing:		 amount of smearing that should be applied
+      phimin:		 minimum phi that should be simulated
+      phimax:		 maximum phi that should be simulated
+      d0min:		 minimum d0 that should be simulated
+      d0max:		 maximum d0 that should be simulated
+      rmin:		 minimum r that should be simulated
+      rmax:		 maximum r that should be simulated
+      tanlmin:		 minimum tanl that should be simulated
+      tanlmax:		 maximum tanl that should be simulated
+      z0min:		 minimum z0 that should be simulated
+      z0max:		 maximum z0 that should be simulated
+      padplanexmin:	 extension of the pad plane in x direction (minimum value)
+      padplanexmax:	 extension of the pad plane in x direction (maximum value)
+      padplaneymin:	 extension of the pad plane in y direction (minimum value)
+      padplaneymax:	 extension of the pad plane in y direction (maximum value)
+      padplanezmin:	 extension of the pad plane in z direction (minimum value)
+      padplanezmax:	 extension of the pad plane in z direction (maximum value)
+      padsizey:		 size of a pad in y direction
+
+
+    Note:
+    If "Track was NOT added!" was printed this just means that some of the hits of the track were not in the given volume. Such tracks are rejected.
+
+
+
+4.) TrackFindingExample:
+
+    Shows how the track finding part works.
+
+    This example consists of two parts. The first part is the track generation, which is the same as in the TrackGenerationExample.
+    The second part is the actual track finding.
+
+    Usage:
+    Two steering files are needed. The first one is the one for the track generation part as described before. You can just simply use the example steering file for track generation which can be found in this directory (Steering_TrackGenerationExample.txt). 
+    The second steering file is the steering file for the track finding part.
+    There is an example steering file in this directory which is called Steering_TrackFindingExample.txt.
+    To get example steering files, you can also call TrackFindingExample without arguments and they will be printed to the screen.
+    If they are already available use TrackFindingExample SteeringFileGeneration.txt SteeringFileFinding.txt
+    Feel free to change the default steering files and play with them :-).
+
+    Steering file:
+    Here are some explanations what the variables in the steering file for track finding mean. For explanations for the track generation steering file see TrackGenerationExample.
+
+      tracktype:		track type; 0 = straight line; 1 = helix
+      findcurler:		option to find curler; 0 = don't find curler; 1 = find curler
+      usevertex:		option to use vertex constraint; 0 = don't use vertex; 1 = use vertex
+      vertexX: 			x position of the vertex
+      vertexY:			y position of the vertex
+      maxdistxy:		maximum allowed distance of hit to track in xy plane before fit
+      maxdistsz:		maximum allowed distance of hit to track in sz plane before fit
+      maxdistxy:		maximum allowed distance of hit to track in xy plane after fit
+      maxdistsz:		maximum allowed distance of hit to track in sz plane after fit
+      minhitnumber:		minimum number of hits to be on a track
+      xythetabins:		number of bins in theta for xy hough space
+      xyd0bins:			number of bins in d0 for xy hough space
+      xyomegabins:		number of bins in omega for xy hough space
+      szthetabins:		number of bins in theta for sz hough space
+      szd0bins:			number of bins in d0 for sz hough space
+      maxdxy:			circle: the inverse of the maximum possible distance of the center of the circle to the origin of the coordinate system to still see a circle in the xy plane; 
+				straight lines: maximum distance of closest approach so that track can be detected
+      maxdsz:                   same as maxdxy, but for sz projection
+      searchneighborhood:	option to not only search for the bin with maximum number of entries in hough space but also its surrounding area; 
+				0 = don't search neighborhood; 1 = search neighborhood
+      saverootfile:             option to save root file (for debugging use only!!!); 0 = don't same root file; 1 = save root file
+

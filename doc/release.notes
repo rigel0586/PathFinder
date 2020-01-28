@@ -1,0 +1,28 @@
+ -----------
+| v00-06-01 |
+ -----------
+   - removed CMAKE_CXX_FLAGS and use default from ilcutil
+     - needed for c++11
+
+ --------
+| v00-06 |
+ --------
+  - cleaned up code & directories , fix typos
+  - added doxygen comments everywhere
+  - added class HoughSpaceAnalyser to save plots of Hough spaces
+  - added class HoughMapMaximumCandidateFinder, which does the search of the Hough maps for the maxima, before this was done in every kind of Hough map
+  - added a class called HoughMap2DuntIntersectionMethod, which is not used yet, but it is an idea for further development
+  - fixed bug in TrackGenerator
+
+ --------
+| v00-05 |
+ --------
+  - several bug fixes that enhances track finding efficiency: 
+    ! wrong sign in some cases of the sz projection fit
+    ! straight line hough space fixed ranges of parameters
+    ! input binning used coherently 
+
+ --------
+| v00-04 |
+ --------
+   - coverity bug fixes by Ch. Rosemann and corrections to this by O. Volynets	
