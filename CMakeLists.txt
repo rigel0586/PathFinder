@@ -1,6 +1,12 @@
 # #require a certain version
 CMAKE_MINIMUM_REQUIRED( VERSION 2.6 )
 
+set(CXX_STANDARD 20)
+set(CXX_STANDARD_REQUIRED On)
+set(CXX_EXTENSIONS Off)
+
+add_compile_options(-std=c++2a)
+
 # declare the project name
 PROJECT(PathFinder)
 
