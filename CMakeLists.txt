@@ -1,11 +1,14 @@
 # #require a certain version
 CMAKE_MINIMUM_REQUIRED( VERSION 2.6 )
 
-set(CXX_STANDARD 20)
-set(CXX_STANDARD_REQUIRED On)
-set(CXX_EXTENSIONS Off)
+option(NEW_BUILD "Set to on to build with new standard compilers" ON)
+if(NEW_BUILD)
+    set(CXX_STANDARD 20)
+    set(CXX_STANDARD_REQUIRED On)
+    set(CXX_EXTENSIONS Off)
 
-add_compile_options(-std=c++2a)
+    add_compile_options(-std=c++2a)
+endif()
 
 # declare the project name
 PROJECT(PathFinder)
